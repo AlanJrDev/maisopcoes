@@ -25,7 +25,7 @@ export function WebGLShader() {
         float ribbon(vec2 p, float shift, float phase) {
           float curve = p.y + p.x * .42 - sin(p.x * 1.25 + time * .46 + phase) * .16 + shift;
           float d = abs(curve);
-          float halo = .014 / (d + .035);
+          float halo = .016 / (d + .035);
           float core = exp(-d * 190.) * 1.7;
           float travel = pow(.5 + .5 * sin(p.x * 2.3 - time * 1.4 + phase), 10.);
           return halo + core * (.58 + travel * 1.1);
@@ -41,7 +41,7 @@ export function WebGLShader() {
           float diodes = .74 + .26 * (1. - smoothstep(.16,.47,length(cell)));
           float vignette = 1. - smoothstep(.5,2.6,length(p * vec2(.6,.8)));
           float textMask = mix(.35,1.,smoothstep(.12,.84,uv.x));
-          gl_FragColor = vec4(light * diodes * vignette * textMask, min(.92,(blue+pink+gold)*.8) * vignette * textMask);
+          gl_FragColor = vec4(light * 1.25 * diodes * vignette * textMask, min(.95,(blue+pink+gold)*.8) * vignette * textMask);
         }`
     })
     scene.add(new THREE.Mesh(geometry, material))
