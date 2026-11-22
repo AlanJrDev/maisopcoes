@@ -1,0 +1,332 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-22T08:32:11.0245577Z",
+  "title": "Design System: Mais Opções Comunicação Visual",
+  "extensions": {
+    "breakpoints": [
+      {
+        "value": "1600px",
+        "name": "wide"
+      },
+      {
+        "value": "1100px",
+        "name": "compact-desktop"
+      },
+      {
+        "value": "800px",
+        "name": "tablet"
+      },
+      {
+        "value": "600px",
+        "name": "mobile"
+      }
+    ],
+    "motion": [
+      {
+        "name": "button-feedback",
+        "value": "180ms",
+        "purpose": "Transformação e sombra da ação principal."
+      },
+      {
+        "name": "image-wipe",
+        "value": "900ms cubic-bezier(.16,1,.3,1)",
+        "purpose": "Revelação decorativa das imagens."
+      },
+      {
+        "name": "marquee",
+        "value": "45s linear infinite",
+        "purpose": "Faixa de serviços, pausada no hover."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: reduce",
+        "purpose": "Desativa animações/transições, usa scroll automático e oculta shader."
+      }
+    ],
+    "shadows": [
+      {
+        "name": "showcase",
+        "value": "8px 24px 70px #0008",
+        "purpose": "Fotografia inclinada do hero."
+      },
+      {
+        "name": "floating-brand",
+        "value": "0 14px 30px #0008",
+        "purpose": "Bloco flutuante da marca."
+      },
+      {
+        "name": "button",
+        "value": "inset 0 2px 0 #fff7,0 5px 18px #0004",
+        "purpose": "Materialidade da ação principal."
+      }
+    ],
+    "colorMeta": {
+      "background": {
+        "displayName": "Fundo quase preto",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.01 260)",
+          "oklch(26% 0.01 260)",
+          "oklch(38% 0.01 260)",
+          "oklch(49% 0.01 260)",
+          "oklch(61% 0.01 260)",
+          "oklch(72% 0.01 260)",
+          "oklch(84% 0.01 260)",
+          "oklch(95% 0.01 260)"
+        ],
+        "note": "Rampa sintetizada apenas para inspeção no painel; não é uma escala aplicada à interface."
+      },
+      "foreground": {
+        "displayName": "Branco suave",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.005 260)",
+          "oklch(26% 0.005 260)",
+          "oklch(38% 0.005 260)",
+          "oklch(49% 0.005 260)",
+          "oklch(61% 0.005 260)",
+          "oklch(72% 0.005 260)",
+          "oklch(84% 0.005 260)",
+          "oklch(95% 0.005 260)"
+        ],
+        "note": "Rampa sintetizada apenas para inspeção no painel; não é uma escala aplicada à interface."
+      },
+      "yellow": {
+        "displayName": "Amarelo de ação",
+        "role": "primary",
+        "tonalRamp": [
+          "oklch(15% 0.16 85)",
+          "oklch(26% 0.16 85)",
+          "oklch(38% 0.16 85)",
+          "oklch(49% 0.16 85)",
+          "oklch(61% 0.16 85)",
+          "oklch(72% 0.16 85)",
+          "oklch(84% 0.16 85)",
+          "oklch(95% 0.16 85)"
+        ],
+        "note": "Rampa sintetizada apenas para inspeção no painel; não é uma escala aplicada à interface."
+      },
+      "blue": {
+        "displayName": "Azul da marca",
+        "role": "secondary",
+        "tonalRamp": [
+          "oklch(15% 0.18 255)",
+          "oklch(26% 0.18 255)",
+          "oklch(38% 0.18 255)",
+          "oklch(49% 0.18 255)",
+          "oklch(61% 0.18 255)",
+          "oklch(72% 0.18 255)",
+          "oklch(84% 0.18 255)",
+          "oklch(95% 0.18 255)"
+        ],
+        "note": "Rampa sintetizada apenas para inspeção no painel; não é uma escala aplicada à interface."
+      },
+      "pink": {
+        "displayName": "Magenta da marca",
+        "role": "tertiary",
+        "tonalRamp": [
+          "oklch(15% 0.2 350)",
+          "oklch(26% 0.2 350)",
+          "oklch(38% 0.2 350)",
+          "oklch(49% 0.2 350)",
+          "oklch(61% 0.2 350)",
+          "oklch(72% 0.2 350)",
+          "oklch(84% 0.2 350)",
+          "oklch(95% 0.2 350)"
+        ],
+        "note": "Rampa sintetizada apenas para inspeção no painel; não é uma escala aplicada à interface."
+      },
+      "muted": {
+        "displayName": "Cinza secundário",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.02 265)",
+          "oklch(26% 0.02 265)",
+          "oklch(38% 0.02 265)",
+          "oklch(49% 0.02 265)",
+          "oklch(61% 0.02 265)",
+          "oklch(72% 0.02 265)",
+          "oklch(84% 0.02 265)",
+          "oklch(95% 0.02 265)"
+        ],
+        "note": "Rampa sintetizada apenas para inspeção no painel; não é uma escala aplicada à interface."
+      },
+      "line": {
+        "displayName": "Borda translúcida",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.005 260)",
+          "oklch(26% 0.005 260)",
+          "oklch(38% 0.005 260)",
+          "oklch(49% 0.005 260)",
+          "oklch(61% 0.005 260)",
+          "oklch(72% 0.005 260)",
+          "oklch(84% 0.005 260)",
+          "oklch(95% 0.005 260)"
+        ],
+        "note": "Rampa sintetizada apenas para inspeção no painel; não é uma escala aplicada à interface."
+      },
+      "service-surface": {
+        "displayName": "Superfície serviços",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.01 265)",
+          "oklch(26% 0.01 265)",
+          "oklch(38% 0.01 265)",
+          "oklch(49% 0.01 265)",
+          "oklch(61% 0.01 265)",
+          "oklch(72% 0.01 265)",
+          "oklch(84% 0.01 265)",
+          "oklch(95% 0.01 265)"
+        ],
+        "note": "Rampa sintetizada apenas para inspeção no painel; não é uma escala aplicada à interface."
+      },
+      "section-surface": {
+        "displayName": "Superfície sobre",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.01 265)",
+          "oklch(26% 0.01 265)",
+          "oklch(38% 0.01 265)",
+          "oklch(49% 0.01 265)",
+          "oklch(61% 0.01 265)",
+          "oklch(72% 0.01 265)",
+          "oklch(84% 0.01 265)",
+          "oklch(95% 0.01 265)"
+        ],
+        "note": "Rampa sintetizada apenas para inspeção no painel; não é uma escala aplicada à interface."
+      },
+      "difference-surface": {
+        "displayName": "Superfície diferenciais",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.01 265)",
+          "oklch(26% 0.01 265)",
+          "oklch(38% 0.01 265)",
+          "oklch(49% 0.01 265)",
+          "oklch(61% 0.01 265)",
+          "oklch(72% 0.01 265)",
+          "oklch(84% 0.01 265)",
+          "oklch(95% 0.01 265)"
+        ],
+        "note": "Rampa sintetizada apenas para inspeção no painel; não é uma escala aplicada à interface."
+      },
+      "contact-surface": {
+        "displayName": "Superfície contato",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.01 265)",
+          "oklch(26% 0.01 265)",
+          "oklch(38% 0.01 265)",
+          "oklch(49% 0.01 265)",
+          "oklch(61% 0.01 265)",
+          "oklch(72% 0.01 265)",
+          "oklch(84% 0.01 265)",
+          "oklch(95% 0.01 265)"
+        ],
+        "note": "Rampa sintetizada apenas para inspeção no painel; não é uma escala aplicada à interface."
+      },
+      "form-surface": {
+        "displayName": "Superfície formulário",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.015 265)",
+          "oklch(26% 0.015 265)",
+          "oklch(38% 0.015 265)",
+          "oklch(49% 0.015 265)",
+          "oklch(61% 0.015 265)",
+          "oklch(72% 0.015 265)",
+          "oklch(84% 0.015 265)",
+          "oklch(95% 0.015 265)"
+        ],
+        "note": "Rampa sintetizada apenas para inspeção no painel; não é uma escala aplicada à interface."
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "purpose": "Hero em Montserrat.",
+        "displayName": "Título editorial"
+      },
+      "headline": {
+        "purpose": "Hierarquia editorial.",
+        "displayName": "Título de seção"
+      },
+      "body": {
+        "purpose": "Textos principais.",
+        "displayName": "Leitura comercial"
+      },
+      "impact": {
+        "purpose": "Palavra de impacto em Orbitron.",
+        "displayName": "Impacto geométrico"
+      }
+    }
+  },
+  "components": [
+    {
+      "refersTo": "button-primary",
+      "kind": "button",
+      "description": "Ação principal com acabamento metálico amarelo.",
+      "name": "Botão principal",
+      "css": ".ds-button{font-family:Montserrat,sans-serif;min-height:53px;padding:16px 21px;border:1px solid #ffe172;border-radius:5px;background:linear-gradient(175deg,#ffdc48 0%,#ffc107 45%,#ecab00 100%);color:#15120a;font-size:14px;font-weight:800;box-shadow:inset 0 2px 0 #fff7,0 5px 18px #0004;cursor:pointer;transition:transform .18s,box-shadow .18s}.ds-button:hover{transform:translateY(-2px);box-shadow:inset 0 2px 0 #fff7,0 7px 25px #e5a90020}.ds-button:active{transform:translateY(1px)}.ds-button:focus-visible{outline:2px solid var(--yellow,#ffc107);outline-offset:6px}@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}",
+      "html": "<button class=\"ds-button\">Preparar orçamento</button>"
+    },
+    {
+      "refersTo": "field",
+      "kind": "input",
+      "description": "Campo escuro com foco amarelo.",
+      "name": "Campo de orçamento",
+      "css": ".ds-label{font:500 14px Montserrat,sans-serif;color:#e5e5eb;display:block}.ds-field{display:block;box-sizing:border-box;width:100%;margin-top:9px;min-height:45px;padding:13px 12px;border:1px solid #ffffff20;border-radius:4px;background:#111218;color:#f5f5f5;font:12px Montserrat,sans-serif;caret-color:var(--yellow,#ffc107);transition:border-color .2s}.ds-field::placeholder{color:#9398a7}.ds-field:hover{border-color:#ffffff20}.ds-field:focus{border-color:var(--yellow,#ffc107)}.ds-field:focus-visible{outline:2px solid var(--yellow,#ffc107);outline-offset:6px}@media(max-width:600px){.ds-field{font-size:16px;padding:12px}}@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}",
+      "html": "<label class=\"ds-label\">Nome<input class=\"ds-field\" placeholder=\"Seu nome\"></label>"
+    },
+    {
+      "refersTo": "nav-contact",
+      "kind": "nav",
+      "description": "Contato em contorno no cabeçalho.",
+      "name": "Contato da navegação",
+      "css": ".ds-nav-contact{display:inline-flex;align-items:center;gap:20px;padding:13px 20px;border:1px solid #ffffff45;border-radius:5px;font:500 14px Montserrat,sans-serif;color:#f5f5f5;text-decoration:none}.ds-nav-contact:hover{border-color:var(--yellow,#ffc107);color:var(--yellow,#ffc107)}.ds-nav-contact:focus-visible{outline:2px solid var(--yellow,#ffc107);outline-offset:6px}",
+      "html": "<nav aria-label=\"Contato\"><a class=\"ds-nav-contact\" href=\"#contato\">Fale com a gente</a></nav>"
+    },
+    {
+      "refersTo": "filter-active",
+      "kind": "chip",
+      "description": "Categoria selecionada do portfólio.",
+      "name": "Filtro ativo",
+      "css": ".ds-filter{padding:10px 19px;border:1px solid transparent;border-radius:4px;background:var(--yellow,#ffc107);color:#181306;font:700 12px Montserrat,sans-serif;cursor:pointer}.ds-filter:hover{background:var(--yellow,#ffc107)}.ds-filter:focus-visible{outline:2px solid var(--yellow,#ffc107);outline-offset:6px}@media(max-width:600px){.ds-filter{padding:10px 12px;font-size:13px}}",
+      "html": "<button class=\"ds-filter\" aria-pressed=\"true\">Todos</button>"
+    },
+    {
+      "refersTo": "service-card",
+      "kind": "card",
+      "description": "Trecho textual do cartão entregue; fotografia real permanece no site.",
+      "name": "Informações de serviço",
+      "css": ".ds-card{background:#111217;border:1px solid #ffffff15;border-radius:8px;padding:28px;color:#f5f5f5;font-family:Montserrat,sans-serif}.ds-tags{font-size:11px;color:#b8bbc8;letter-spacing:.06em;line-height:1.7}.ds-card h3{font-size:24px;font-weight:650;line-height:1.3;letter-spacing:-.025em;margin:12px 0 0}.ds-card p{font-size:14px;color:var(--muted,#b9bbc4);line-height:1.9;margin:14px 0 0;max-width:50ch}.ds-card a{display:inline-flex;margin-top:22px;padding:5px 0;color:var(--yellow,#ffc107);font-size:14px;font-weight:600;text-decoration:none}.ds-card a:hover{color:var(--yellow,#ffc107)}.ds-card a:focus-visible{outline:2px solid var(--yellow,#ffc107);outline-offset:6px}@media(max-width:600px){.ds-card{padding:24px;border-radius:6px}.ds-card p{font-size:16px}.ds-card h3{font-size:23px}}",
+      "html": "<article class=\"ds-card\"><span class=\"ds-tags\">COMUNICAÇÃO VISUAL</span><h3>Fachadas comerciais</h3><p>Presença visual para o seu negócio.</p><a href=\"#contato\">Solicitar orçamento</a></article>"
+    }
+  ],
+  "narrative": {
+    "keyCharacteristics": [
+      "Logo cromada original e acentos da identidade do cliente.",
+      "Hero com luz diagonal e fotografia de projeto real.",
+      "CTAs amarelos com acabamento metálico e texto escuro.",
+      "Serviços assimétricos no desktop e em coluna no mobile.",
+      "Movimento decorativo com alternativa de movimento reduzido."
+    ],
+    "donts": [
+      "Don't redesenhar a logo ou substituir a identidade por uma marca genérica.",
+      "Don't inventar contatos, depoimentos, estatísticas, certificações ou projetos.",
+      "Don't atribuir fotos a serviços que elas não demonstram.",
+      "Don't espalhar neon indiscriminadamente ou fixar WebGL sobre o conteúdo.",
+      "Don't depender de animação para leitura ou navegação."
+    ],
+    "northStar": "Luz e material da própria marca",
+    "rules": [],
+    "dos": [
+      "Do preservar a logo original cromada e o trio azul, magenta e amarelo do cliente.",
+      "Do usar fotos reais fornecidas e respeitar os recortes específicos dos projetos.",
+      "Do reservar amarelo para ações, foco e detalhes de orientação.",
+      "Do manter serviços assimétricos no desktop e alinhados em coluna no mobile.",
+      "Do preservar foco visível, leitura estática e movimento reduzido."
+    ],
+    "overview": "O site apresenta o estúdio por meio de superfícies grafite, logo original cromada, luz diagonal e fotografias reais dos trabalhos fornecidos pelo cliente. A direção cinematográfica do hero dá presença ao material; a composição editorial assimétrica organiza serviços e evidências comerciais.\n\nOrbitron marca palavras de impacto, enquanto Montserrat sustenta títulos e leitura. O amarelo conduz ações, e azul e magenta aparecem como luz, faixas e detalhes da identidade. Conteúdo permanece legível sem animação."
+  }
+}
