@@ -5,3 +5,4 @@ dist/
 .qa/
 site-source.zip
 .npm-cache/
+.vercel/

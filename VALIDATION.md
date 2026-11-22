@@ -12,3 +12,14 @@
 
 ## Limites
 Não foram medidos Core Web Vitals, desempenho em aparelho físico ou contraste automatizado. Redução de movimento, pausa e descarte do shader foram inspecionados no código; não houve teste de hardware WebGL em múltiplos dispositivos. A existência de uma conta WhatsApp no número confirmado não foi verificada por envio de mensagem.
+
+## Revisão LED, botões e responsividade
+
+- Hero sem imagens confirmado no DOM (`.hero img`: zero). Botão principal com fundo transparente e texto amarelo em repouso; preenchimento total e texto escuro confirmados por foco do teclado.
+- Nova versão medida em 1440, 768, 390 e 320px sem rolagem horizontal. Menu compacto disponível em tablet; serviços em uma coluna até 700px e projetos até 480px.
+- Lenis ativo. Offset de âncora medido em aproximadamente 100px, consistente com a altura do cabeçalho. Toque permanece nativo.
+- Galeria: Plotagem retorna um projeto, Todos retorna seis; diálogo fecha por Escape. Com diálogo aberto, tentativa de rolar o fundo manteve scrollY em 4531.
+- Formulário: URL gerada para o número confirmado; editar o nome invalida a prévia. Nenhuma mensagem enviada.
+- Console sem erros ou avisos nos testes. Fotos carregadas após percorrer a página.
+- Capturas desta revisão: `.qa/v2/`. Evidências por região em desktop, tablet e celular; captura de página inteira indisponível nesta sessão.
+- Revisão independente identificou e corrigiu falta de preenchimento de foco em dois controles no modo de movimento reduzido. Esse modo foi inspecionado no código, sem alteração de configuração do sistema.

@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState, lazy, Suspense } from 'react'
 import type { FormEvent } from 'react'
 import { gsap } from 'gsap'
-import { Menu, X, MessageCircle, Plus, Check, Sparkles, Layers, Zap, Handshake, ChevronDown, Maximize2, Copy, CheckCheck } from 'lucide-react'
+import { Menu, X, MessageCircle, Plus, Check, Layers, Zap, Handshake, ChevronDown, Maximize2, Copy, CheckCheck } from 'lucide-react'
 import { MetalButton } from './components/ui/metal-button'
 import { business, projects, services, whatsappUrl } from './data'
+import { useSmoothScroll } from './hooks/use-smooth-scroll'
 const Shader = lazy(() => import('./components/ui/web-gl-shader').then(m=>({default:m.WebGLShader})))
 
 function Brand({large=false}: {large?:boolean}) { return <a className={`brand ${large?'brand-large':''}`} href="#inicio" aria-label="Mais Opções — início"><img src="/images/logo.png" alt="Mais Opções" width="240" height="80"/><span>COMUNICAÇÃO VISUAL</span></a> }
@@ -19,22 +20,23 @@ export default function App() {
   const root = useRef<HTMLDivElement>(null)
   const dialog = useRef<HTMLDialogElement>(null)
   const lastTrigger=useRef<HTMLElement|null>(null)
+  const scrollTo = useSmoothScroll()
   useEffect(() => {
     const scroll = () => setScrolled(window.scrollY>30)
     window.addEventListener('scroll',scroll,{passive:true});scroll()
     const media=gsap.matchMedia()
     media.add('(prefers-reduced-motion: no-preference)',()=>{
-      gsap.from('.hero-line',{y:38,opacity:0,duration:1.05,stagger:.13,ease:'power3.out',clearProps:'all'})
-      gsap.from('.hero-visual',{y:24,rotate:2,opacity:0,duration:1.3,delay:.15,ease:'power3.out',clearProps:'all'})
+      gsap.from('.hero-line',{y:24,opacity:0,duration:.8,stagger:.07,ease:'power3.out',clearProps:'all'})
     },root)
-    const sections=[...document.querySelectorAll('.image-reveal')]
-    const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target)}}),{threshold:.12})
+    const sections=[...document.querySelectorAll('.section-heading, .about-copy, .about-graphic, .value, .process-list li, .contact-copy, .quote-form')]
+    const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)gsap.fromTo(e.target,{y:20},{y:0,duration:.65,ease:'power3.out',clearProps:'transform'});io.unobserve(e.target)}}),{threshold:.15})
     sections.forEach(s=>io.observe(s))
     return()=>{window.removeEventListener('scroll',scroll);media.revert();io.disconnect()}
   },[])
-  useEffect(()=>{if(selected)dialog.current?.showModal()},[selected])
+  useEffect(()=>{if(selected)dialog.current?.showModal();document.documentElement.classList.toggle('gallery-open',Boolean(selected));return()=>document.documentElement.classList.remove('gallery-open')},[selected])
+  useEffect(()=>{if(!menu)return;const close=(e:KeyboardEvent)=>{if(e.key==='Escape')setMenu(false)};document.addEventListener('keydown',close);return()=>document.removeEventListener('keydown',close)},[menu])
   const closeProject=()=>{dialog.current?.close();setSelected(null);lastTrigger.current?.focus()}
-  const chooseService=(value:string)=>{setService(value);setDraft('');document.getElementById('contato')?.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'})}
+  const chooseService=(value:string)=>{setService(value);setDraft('');scrollTo('#contato')}
   function submit(event:FormEvent<HTMLFormElement>) {
     event.preventDefault()
     const data=new FormData(event.currentTarget)
@@ -44,24 +46,19 @@ export default function App() {
   return <div ref={root}>
     <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
     <header className={`header ${scrolled?'scrolled':''}`}>
-      <div className="container header-inner"><Brand/><nav className={menu?'nav open':'nav'} aria-label="Navegação principal"><a href="#servicos" onClick={()=>setMenu(false)}>Soluções</a><a href="#projetos" onClick={()=>setMenu(false)}>Projetos</a><a href="#sobre" onClick={()=>setMenu(false)}>A Mais Opções</a><a href="#contato" className="nav-contact" onClick={()=>setMenu(false)}>Vamos conversar <MessageCircle size={16}/></a></nav><button className="menu-toggle" aria-label={menu?'Fechar menu':'Abrir menu'} aria-expanded={menu} onClick={()=>setMenu(!menu)}>{menu?<X/>:<Menu/>}</button></div>
+      <div className="container header-inner"><Brand/><nav id="main-navigation" className={menu?'nav open':'nav'} aria-label="Navegação principal"><a href="#servicos" onClick={()=>setMenu(false)}>Soluções</a><a href="#projetos" onClick={()=>setMenu(false)}>Projetos</a><a href="#sobre" onClick={()=>setMenu(false)}>A Mais Opções</a><a href="#contato" className="nav-contact outline-action" onClick={()=>setMenu(false)}>Vamos conversar <MessageCircle size={16}/></a></nav><button className="menu-toggle" aria-label={menu?'Fechar menu':'Abrir menu'} aria-expanded={menu} aria-controls="main-navigation" onClick={()=>setMenu(!menu)}>{menu?<X/>:<Menu/>}</button></div>
     </header>
     <main id="conteudo">
       <section id="inicio" className="hero">
         <div className="hero-ambient" aria-hidden="true"/><Suspense fallback={null}><Shader/></Suspense>
-        <div className="container hero-grid"><div className="hero-copy">
+        <div className="led-grid" aria-hidden="true"/><div className="container hero-grid"><div className="hero-copy">
           <div className="hero-label hero-line"><span className="color-bars" aria-hidden="true"><i/><i/><i/></span> CRIATIVIDADE QUE GANHA FORMA.</div>
           <h1><span className="hero-line">Sua marca</span><span className="hero-line">merece ser</span><span className="hero-line hero-impact">vista<span className="yellow">.</span></span></h1>
-          <p className="hero-line hero-description">Da primeira impressão ao último detalhe.<br/>Comunicação visual para colocar o seu negócio <strong>em destaque.</strong></p>
-          <div className="hero-actions hero-line"><MetalButton onClick={()=>chooseService('Fachadas comerciais')}><MessageCircle size={19}/> Quero destacar minha marca</MetalButton><a className="text-link" href="#projetos">Explore os projetos <Plus size={17}/></a></div>
+          <p className="hero-line hero-description">Da primeira impressão ao último detalhe.<br/>{' '}Comunicação visual para colocar o seu negócio <strong>em destaque.</strong></p>
+          <div className="hero-actions hero-line"><MetalButton onClick={()=>chooseService('Fachadas comerciais')}><MessageCircle size={19}/> Quero destacar minha marca</MetalButton><a className="text-link outline-action" href="#projetos">Explore os projetos <Plus size={17}/></a></div>
           <div className="hero-assurance hero-line"><Check size={15}/> Soluções personalizadas <span/> Da ideia à aplicação</div>
         </div>
-        <div className="hero-visual">
-          <div className="visual-topline"><span>IDEIAS QUE SAEM DO PAPEL.</span><span className="visual-mark">M+</span></div>
-          <div className="showcase"><img src="/images/nuty-frota.jpg" alt="Plotagem de caminhão Nuty e Boozy, trabalho apresentado pela Mais Opções" fetchPriority="high" width="1600" height="1200"/><div className="showcase-shade"/><div className="showcase-label"><span>PLOTAGEM DE FROTAS</span><strong>Impacto.<br/>Por onde passar.</strong></div><span className="showcase-stamp"><Sparkles size={17}/> Feito para ser visto</span></div>
-          <div className="floating-brand"><img src="/images/logo.png" alt="" width="240" height="80"/><span>SUA IDEIA, EM DESTAQUE!</span></div>
-          <div className="visual-bottomline"><span>CORES VIVAS. PRESENÇA REAL.</span><span className="color-dots" aria-hidden="true"><i/><i/><i/></span></div>
-        </div></div>
+        </div>
         <div className="container hero-bottom"><a href="#servicos"><span className="scroll-capsule"><ChevronDown size={16}/></span> Tem mais possibilidades abaixo</a><span>FACHADAS · PLOTAGEM · IMPRESSÃO</span></div>
       </section>
       <div className="marquee" aria-label="Fachadas, ACM, adesivos, plotagem, letras luminosas e impressão"><div className="marquee-track">{[0,1,2,3].map(i=><span key={i} aria-hidden={i>0}>FACHADAS <Plus/> PLOTAGEM <Plus/> ADESIVOS <Plus/> LUMINOSOS <Plus/> IMPRESSÃO <Plus/> ACM <Plus/></span>)}</div></div>

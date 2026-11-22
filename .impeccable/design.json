@@ -1,250 +1,162 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-22T08:32:11.0245577Z",
+  "generatedAt": "2026-11-22T17:48:27.0577267Z",
   "title": "Design System: Mais Opções Comunicação Visual",
   "extensions": {
     "breakpoints": [
       {
-        "value": "1600px",
-        "name": "wide"
+        "name": "compact-desktop",
+        "value": "1100px"
       },
       {
-        "value": "1100px",
-        "name": "compact-desktop"
+        "name": "mobile-menu",
+        "value": "900px"
       },
       {
-        "value": "800px",
-        "name": "tablet"
+        "name": "base-tablet",
+        "value": "800px"
       },
       {
-        "value": "600px",
-        "name": "mobile"
+        "name": "single-column-services",
+        "value": "700px"
+      },
+      {
+        "name": "base-mobile",
+        "value": "600px"
+      },
+      {
+        "name": "single-column-projects",
+        "value": "480px"
+      },
+      {
+        "name": "narrow",
+        "value": "359px"
       }
     ],
     "motion": [
       {
-        "name": "button-feedback",
-        "value": "180ms",
-        "purpose": "Transformação e sombra da ação principal."
+        "purpose": "Transformações de interação.",
+        "name": "motion-fast",
+        "value": "160ms"
       },
       {
-        "name": "image-wipe",
-        "value": "900ms cubic-bezier(.16,1,.3,1)",
-        "purpose": "Revelação decorativa das imagens."
+        "purpose": "Preenchimento scaleY, estados e interface.",
+        "name": "motion-ui",
+        "value": "250ms"
       },
       {
+        "purpose": "Preenchimento e transformações.",
+        "name": "ease-out",
+        "value": "cubic-bezier(.23,1,.32,1)"
+      },
+      {
+        "purpose": "Token declarado em refinements.css.",
+        "name": "ease-in-out",
+        "value": "cubic-bezier(.77,0,.175,1)"
+      },
+      {
+        "purpose": "Escala de fotografias em ponteiro com hover.",
+        "name": "image-scale",
+        "value": "650ms cubic-bezier(.23,1,.32,1)"
+      },
+      {
+        "purpose": "Faixa de serviços.",
         "name": "marquee",
-        "value": "45s linear infinite",
-        "purpose": "Faixa de serviços, pausada no hover."
+        "value": "36s linear infinite"
       },
       {
+        "purpose": "Roda suave, toque nativo, autoToggle no modal e anchors com scroll-padding-top 100px.",
+        "name": "lenis",
+        "value": "lerp: 0.1; smoothWheel: true; syncTouch: false"
+      },
+      {
+        "purpose": "Shader LED segmentado; rAF sem limitador de 30fps, pixel ratio limitado a 1.25 abaixo de 700px e 1.5 nas demais larguras.",
+        "name": "led-phase",
+        "value": "time * .46"
+      },
+      {
+        "purpose": "Desativa Lenis, shader e transições, mantendo estados estáticos e leitura.",
         "name": "reduced-motion",
-        "value": "prefers-reduced-motion: reduce",
-        "purpose": "Desativa animações/transições, usa scroll automático e oculta shader."
+        "value": "prefers-reduced-motion: reduce"
       }
     ],
     "shadows": [
       {
-        "name": "showcase",
-        "value": "8px 24px 70px #0008",
-        "purpose": "Fotografia inclinada do hero."
+        "purpose": "Única sombra do atalho flutuante.",
+        "name": "floating-whatsapp",
+        "value": "0 7px 24px #0007"
       },
       {
-        "name": "floating-brand",
-        "value": "0 14px 30px #0008",
-        "purpose": "Bloco flutuante da marca."
-      },
-      {
-        "name": "button",
-        "value": "inset 0 2px 0 #fff7,0 5px 18px #0004",
-        "purpose": "Materialidade da ação principal."
+        "purpose": "Camada do menu mobile.",
+        "name": "mobile-nav",
+        "value": "0 18px 32px #0005"
       }
     ],
     "colorMeta": {
       "background": {
         "displayName": "Fundo quase preto",
-        "role": "neutral",
-        "tonalRamp": [
-          "oklch(15% 0.01 260)",
-          "oklch(26% 0.01 260)",
-          "oklch(38% 0.01 260)",
-          "oklch(49% 0.01 260)",
-          "oklch(61% 0.01 260)",
-          "oklch(72% 0.01 260)",
-          "oklch(84% 0.01 260)",
-          "oklch(95% 0.01 260)"
-        ],
-        "note": "Rampa sintetizada apenas para inspeção no painel; não é uma escala aplicada à interface."
+        "role": "neutral"
       },
       "foreground": {
         "displayName": "Branco suave",
-        "role": "neutral",
-        "tonalRamp": [
-          "oklch(15% 0.005 260)",
-          "oklch(26% 0.005 260)",
-          "oklch(38% 0.005 260)",
-          "oklch(49% 0.005 260)",
-          "oklch(61% 0.005 260)",
-          "oklch(72% 0.005 260)",
-          "oklch(84% 0.005 260)",
-          "oklch(95% 0.005 260)"
-        ],
-        "note": "Rampa sintetizada apenas para inspeção no painel; não é uma escala aplicada à interface."
+        "role": "neutral"
       },
       "yellow": {
         "displayName": "Amarelo de ação",
-        "role": "primary",
-        "tonalRamp": [
-          "oklch(15% 0.16 85)",
-          "oklch(26% 0.16 85)",
-          "oklch(38% 0.16 85)",
-          "oklch(49% 0.16 85)",
-          "oklch(61% 0.16 85)",
-          "oklch(72% 0.16 85)",
-          "oklch(84% 0.16 85)",
-          "oklch(95% 0.16 85)"
-        ],
-        "note": "Rampa sintetizada apenas para inspeção no painel; não é uma escala aplicada à interface."
+        "role": "primary"
       },
       "blue": {
         "displayName": "Azul da marca",
-        "role": "secondary",
-        "tonalRamp": [
-          "oklch(15% 0.18 255)",
-          "oklch(26% 0.18 255)",
-          "oklch(38% 0.18 255)",
-          "oklch(49% 0.18 255)",
-          "oklch(61% 0.18 255)",
-          "oklch(72% 0.18 255)",
-          "oklch(84% 0.18 255)",
-          "oklch(95% 0.18 255)"
-        ],
-        "note": "Rampa sintetizada apenas para inspeção no painel; não é uma escala aplicada à interface."
+        "role": "secondary"
       },
       "pink": {
         "displayName": "Magenta da marca",
-        "role": "tertiary",
-        "tonalRamp": [
-          "oklch(15% 0.2 350)",
-          "oklch(26% 0.2 350)",
-          "oklch(38% 0.2 350)",
-          "oklch(49% 0.2 350)",
-          "oklch(61% 0.2 350)",
-          "oklch(72% 0.2 350)",
-          "oklch(84% 0.2 350)",
-          "oklch(95% 0.2 350)"
-        ],
-        "note": "Rampa sintetizada apenas para inspeção no painel; não é uma escala aplicada à interface."
+        "role": "tertiary"
       },
       "muted": {
         "displayName": "Cinza secundário",
-        "role": "neutral",
-        "tonalRamp": [
-          "oklch(15% 0.02 265)",
-          "oklch(26% 0.02 265)",
-          "oklch(38% 0.02 265)",
-          "oklch(49% 0.02 265)",
-          "oklch(61% 0.02 265)",
-          "oklch(72% 0.02 265)",
-          "oklch(84% 0.02 265)",
-          "oklch(95% 0.02 265)"
-        ],
-        "note": "Rampa sintetizada apenas para inspeção no painel; não é uma escala aplicada à interface."
+        "role": "neutral"
       },
       "line": {
         "displayName": "Borda translúcida",
-        "role": "neutral",
-        "tonalRamp": [
-          "oklch(15% 0.005 260)",
-          "oklch(26% 0.005 260)",
-          "oklch(38% 0.005 260)",
-          "oklch(49% 0.005 260)",
-          "oklch(61% 0.005 260)",
-          "oklch(72% 0.005 260)",
-          "oklch(84% 0.005 260)",
-          "oklch(95% 0.005 260)"
-        ],
-        "note": "Rampa sintetizada apenas para inspeção no painel; não é uma escala aplicada à interface."
+        "role": "neutral"
       },
       "service-surface": {
         "displayName": "Superfície serviços",
-        "role": "neutral",
-        "tonalRamp": [
-          "oklch(15% 0.01 265)",
-          "oklch(26% 0.01 265)",
-          "oklch(38% 0.01 265)",
-          "oklch(49% 0.01 265)",
-          "oklch(61% 0.01 265)",
-          "oklch(72% 0.01 265)",
-          "oklch(84% 0.01 265)",
-          "oklch(95% 0.01 265)"
-        ],
-        "note": "Rampa sintetizada apenas para inspeção no painel; não é uma escala aplicada à interface."
+        "role": "neutral"
       },
       "section-surface": {
         "displayName": "Superfície sobre",
-        "role": "neutral",
-        "tonalRamp": [
-          "oklch(15% 0.01 265)",
-          "oklch(26% 0.01 265)",
-          "oklch(38% 0.01 265)",
-          "oklch(49% 0.01 265)",
-          "oklch(61% 0.01 265)",
-          "oklch(72% 0.01 265)",
-          "oklch(84% 0.01 265)",
-          "oklch(95% 0.01 265)"
-        ],
-        "note": "Rampa sintetizada apenas para inspeção no painel; não é uma escala aplicada à interface."
+        "role": "neutral"
       },
       "difference-surface": {
         "displayName": "Superfície diferenciais",
-        "role": "neutral",
-        "tonalRamp": [
-          "oklch(15% 0.01 265)",
-          "oklch(26% 0.01 265)",
-          "oklch(38% 0.01 265)",
-          "oklch(49% 0.01 265)",
-          "oklch(61% 0.01 265)",
-          "oklch(72% 0.01 265)",
-          "oklch(84% 0.01 265)",
-          "oklch(95% 0.01 265)"
-        ],
-        "note": "Rampa sintetizada apenas para inspeção no painel; não é uma escala aplicada à interface."
+        "role": "neutral"
       },
       "contact-surface": {
         "displayName": "Superfície contato",
-        "role": "neutral",
-        "tonalRamp": [
-          "oklch(15% 0.01 265)",
-          "oklch(26% 0.01 265)",
-          "oklch(38% 0.01 265)",
-          "oklch(49% 0.01 265)",
-          "oklch(61% 0.01 265)",
-          "oklch(72% 0.01 265)",
-          "oklch(84% 0.01 265)",
-          "oklch(95% 0.01 265)"
-        ],
-        "note": "Rampa sintetizada apenas para inspeção no painel; não é uma escala aplicada à interface."
+        "role": "neutral"
       },
       "form-surface": {
         "displayName": "Superfície formulário",
-        "role": "neutral",
-        "tonalRamp": [
-          "oklch(15% 0.015 265)",
-          "oklch(26% 0.015 265)",
-          "oklch(38% 0.015 265)",
-          "oklch(49% 0.015 265)",
-          "oklch(61% 0.015 265)",
-          "oklch(72% 0.015 265)",
-          "oklch(84% 0.015 265)",
-          "oklch(95% 0.015 265)"
-        ],
-        "note": "Rampa sintetizada apenas para inspeção no painel; não é uma escala aplicada à interface."
+        "role": "neutral"
+      },
+      "hero-background": {
+        "displayName": "Fundo do hero",
+        "role": "neutral"
+      },
+      "hero-copy": {
+        "displayName": "Descrição do hero",
+        "role": "neutral"
+      },
+      "hero-assurance": {
+        "displayName": "Garantias do hero",
+        "role": "neutral"
       }
     },
     "typographyMeta": {
       "display": {
-        "purpose": "Hero em Montserrat.",
+        "purpose": "Hero centralizado em Montserrat, duas linhas desktop e três até 700px.",
         "displayName": "Título editorial"
       },
       "headline": {
@@ -265,17 +177,17 @@
     {
       "refersTo": "button-primary",
       "kind": "button",
-      "description": "Ação principal com acabamento metálico amarelo.",
-      "name": "Botão principal",
-      "css": ".ds-button{font-family:Montserrat,sans-serif;min-height:53px;padding:16px 21px;border:1px solid #ffe172;border-radius:5px;background:linear-gradient(175deg,#ffdc48 0%,#ffc107 45%,#ecab00 100%);color:#15120a;font-size:14px;font-weight:800;box-shadow:inset 0 2px 0 #fff7,0 5px 18px #0004;cursor:pointer;transition:transform .18s,box-shadow .18s}.ds-button:hover{transform:translateY(-2px);box-shadow:inset 0 2px 0 #fff7,0 7px 25px #e5a90020}.ds-button:active{transform:translateY(1px)}.ds-button:focus-visible{outline:2px solid var(--yellow,#ffc107);outline-offset:6px}@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}",
-      "html": "<button class=\"ds-button\">Preparar orçamento</button>"
+      "description": "Contorno amarelo e preenchimento scaleY nos estados interativos.",
+      "name": "Ação principal vazada",
+      "css": ".ds-action{--fill:var(--yellow,#ffc107);--rest:var(--yellow,#ffc107);--outline:var(--yellow,#ffc107);position:relative;isolation:isolate;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:11px;min-height:54px;padding:16px 24px;border:1px solid var(--outline);border-radius:5px;background:transparent;box-shadow:none;color:var(--rest);font:700 14px Montserrat,sans-serif;text-decoration:none;cursor:pointer;transition:color 250ms ease,border-color 250ms ease,transform 160ms cubic-bezier(.23,1,.32,1)}.ds-action:before{content:'';position:absolute;inset:-1px;z-index:-1;background:var(--fill);transform:scaleY(0);transform-origin:bottom;transition:transform 250ms cubic-bezier(.23,1,.32,1);pointer-events:none}.ds-action:focus-visible{color:#141108;outline:2px solid var(--yellow,#ffc107);outline-offset:6px}.ds-action:focus-visible:before,.ds-action:active:before{transform:scaleY(1)}.ds-action:active{transform:scale(.98);color:#141108}@media(hover:hover) and (pointer:fine){.ds-action:hover{color:#141108;border-color:var(--yellow,#ffc107);transform:translateY(-1px)}.ds-action:hover:before{transform:scaleY(1)}}@media(prefers-reduced-motion:reduce){.ds-action,.ds-action:before{transition:none}.ds-action:before{transform:none;opacity:0}.ds-action:focus-visible{background:var(--yellow,#ffc107)}.ds-action:focus-visible:before{opacity:1}@media(hover:hover) and (pointer:fine){.ds-action:hover{background:var(--yellow,#ffc107)}}}",
+      "html": "<button class=\"ds-action\">Preparar orçamento</button>"
     },
     {
       "refersTo": "field",
       "kind": "input",
       "description": "Campo escuro com foco amarelo.",
       "name": "Campo de orçamento",
-      "css": ".ds-label{font:500 14px Montserrat,sans-serif;color:#e5e5eb;display:block}.ds-field{display:block;box-sizing:border-box;width:100%;margin-top:9px;min-height:45px;padding:13px 12px;border:1px solid #ffffff20;border-radius:4px;background:#111218;color:#f5f5f5;font:12px Montserrat,sans-serif;caret-color:var(--yellow,#ffc107);transition:border-color .2s}.ds-field::placeholder{color:#9398a7}.ds-field:hover{border-color:#ffffff20}.ds-field:focus{border-color:var(--yellow,#ffc107)}.ds-field:focus-visible{outline:2px solid var(--yellow,#ffc107);outline-offset:6px}@media(max-width:600px){.ds-field{font-size:16px;padding:12px}}@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}",
+      "css": ".ds-label{font:500 14px Montserrat,sans-serif;color:#e5e5eb;display:block}.ds-field{display:block;box-sizing:border-box;width:100%;margin-top:9px;min-height:45px;padding:13px 12px;border:1px solid #ffffff20;border-radius:4px;background:#111218;color:#f5f5f5;font:12px Montserrat,sans-serif;caret-color:var(--yellow,#ffc107);transition:border-color .2s}.ds-field::placeholder{color:#9398a7}.ds-field:hover{border-color:#ffffff20}.ds-field:focus{border-color:var(--yellow,#ffc107)}.ds-field:focus-visible{outline:2px solid var(--yellow,#ffc107);outline-offset:6px}@media(max-width:700px){.ds-field{font-size:16px;padding:12px}}@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}",
       "html": "<label class=\"ds-label\">Nome<input class=\"ds-field\" placeholder=\"Seu nome\"></label>"
     },
     {
@@ -283,15 +195,15 @@
       "kind": "nav",
       "description": "Contato em contorno no cabeçalho.",
       "name": "Contato da navegação",
-      "css": ".ds-nav-contact{display:inline-flex;align-items:center;gap:20px;padding:13px 20px;border:1px solid #ffffff45;border-radius:5px;font:500 14px Montserrat,sans-serif;color:#f5f5f5;text-decoration:none}.ds-nav-contact:hover{border-color:var(--yellow,#ffc107);color:var(--yellow,#ffc107)}.ds-nav-contact:focus-visible{outline:2px solid var(--yellow,#ffc107);outline-offset:6px}",
-      "html": "<nav aria-label=\"Contato\"><a class=\"ds-nav-contact\" href=\"#contato\">Fale com a gente</a></nav>"
+      "css": ".ds-action{--fill:var(--yellow,#ffc107);--rest:var(--yellow,#ffc107);--outline:var(--yellow,#ffc107);position:relative;isolation:isolate;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:11px;min-height:54px;padding:16px 24px;border:1px solid var(--outline);border-radius:5px;background:transparent;box-shadow:none;color:var(--rest);font:700 14px Montserrat,sans-serif;text-decoration:none;cursor:pointer;transition:color 250ms ease,border-color 250ms ease,transform 160ms cubic-bezier(.23,1,.32,1)}.ds-action:before{content:'';position:absolute;inset:-1px;z-index:-1;background:var(--fill);transform:scaleY(0);transform-origin:bottom;transition:transform 250ms cubic-bezier(.23,1,.32,1);pointer-events:none}.ds-action:focus-visible{color:#141108;outline:2px solid var(--yellow,#ffc107);outline-offset:6px}.ds-action:focus-visible:before,.ds-action:active:before{transform:scaleY(1)}.ds-action:active{transform:scale(.98);color:#141108}@media(hover:hover) and (pointer:fine){.ds-action:hover{color:#141108;border-color:var(--yellow,#ffc107);transform:translateY(-1px)}.ds-action:hover:before{transform:scaleY(1)}}@media(prefers-reduced-motion:reduce){.ds-action,.ds-action:before{transition:none}.ds-action:before{transform:none;opacity:0}.ds-action:focus-visible{background:var(--yellow,#ffc107)}.ds-action:focus-visible:before{opacity:1}@media(hover:hover) and (pointer:fine){.ds-action:hover{background:var(--yellow,#ffc107)}}}.ds-nav-contact{--outline:#d5deee65;--rest:#f5f5f5;padding:13px 20px;font-weight:500;min-height:0}",
+      "html": "<nav aria-label=\"Contato\"><a class=\"ds-action ds-nav-contact\" href=\"#contato\">Fale com a gente</a></nav>"
     },
     {
       "refersTo": "filter-active",
       "kind": "chip",
-      "description": "Categoria selecionada do portfólio.",
+      "description": "Categoria ativa com contorno amarelo, sem preenchimento em repouso.",
       "name": "Filtro ativo",
-      "css": ".ds-filter{padding:10px 19px;border:1px solid transparent;border-radius:4px;background:var(--yellow,#ffc107);color:#181306;font:700 12px Montserrat,sans-serif;cursor:pointer}.ds-filter:hover{background:var(--yellow,#ffc107)}.ds-filter:focus-visible{outline:2px solid var(--yellow,#ffc107);outline-offset:6px}@media(max-width:600px){.ds-filter{padding:10px 12px;font-size:13px}}",
+      "css": ".ds-filter{position:relative;isolation:isolate;overflow:hidden;min-height:44px;padding:10px 19px;border:1px solid var(--yellow,#ffc107);border-radius:4px;background:transparent;color:var(--yellow,#ffc107);font:700 12px Montserrat,sans-serif;cursor:pointer;transition:color 250ms ease,border-color 250ms ease}.ds-filter:before{content:\"\";position:absolute;inset:0;z-index:-1;background:var(--yellow,#ffc107);transform:scaleY(0);transform-origin:bottom;transition:transform 250ms cubic-bezier(.23,1,.32,1)}.ds-filter:focus-visible{outline:2px solid var(--yellow,#ffc107);outline-offset:6px}@media(hover:hover) and (pointer:fine){.ds-filter:hover{color:#141108}.ds-filter:hover:before{transform:scaleY(1)}}@media(prefers-reduced-motion:reduce){.ds-filter,.ds-filter:before{transition:none}}",
       "html": "<button class=\"ds-filter\" aria-pressed=\"true\">Todos</button>"
     },
     {
@@ -299,20 +211,20 @@
       "kind": "card",
       "description": "Trecho textual do cartão entregue; fotografia real permanece no site.",
       "name": "Informações de serviço",
-      "css": ".ds-card{background:#111217;border:1px solid #ffffff15;border-radius:8px;padding:28px;color:#f5f5f5;font-family:Montserrat,sans-serif}.ds-tags{font-size:11px;color:#b8bbc8;letter-spacing:.06em;line-height:1.7}.ds-card h3{font-size:24px;font-weight:650;line-height:1.3;letter-spacing:-.025em;margin:12px 0 0}.ds-card p{font-size:14px;color:var(--muted,#b9bbc4);line-height:1.9;margin:14px 0 0;max-width:50ch}.ds-card a{display:inline-flex;margin-top:22px;padding:5px 0;color:var(--yellow,#ffc107);font-size:14px;font-weight:600;text-decoration:none}.ds-card a:hover{color:var(--yellow,#ffc107)}.ds-card a:focus-visible{outline:2px solid var(--yellow,#ffc107);outline-offset:6px}@media(max-width:600px){.ds-card{padding:24px;border-radius:6px}.ds-card p{font-size:16px}.ds-card h3{font-size:23px}}",
+      "css": ".ds-card{background:#111217;border:1px solid #ffffff15;border-radius:8px;padding:28px;color:#f5f5f5;font-family:Montserrat,sans-serif}.ds-tags{font-size:11px;color:#b8bbc8;letter-spacing:.06em;line-height:1.7}.ds-card h3{font-size:24px;font-weight:650;line-height:1.3;letter-spacing:-.025em;margin:12px 0 0}.ds-card p{font-size:14px;color:var(--muted,#b9bbc4);line-height:1.9;margin:14px 0 0;max-width:50ch}.ds-card a{display:inline-flex;margin-top:22px;padding:5px 0;color:var(--yellow,#ffc107);font-size:14px;font-weight:600;text-decoration:none}.ds-card a:hover{color:var(--yellow,#ffc107)}.ds-card a:focus-visible{outline:2px solid var(--yellow,#ffc107);outline-offset:6px}@media(max-width:700px){.ds-card{padding:25px}.ds-card p{font-size:16px}.ds-card h3{font-size:24px}}",
       "html": "<article class=\"ds-card\"><span class=\"ds-tags\">COMUNICAÇÃO VISUAL</span><h3>Fachadas comerciais</h3><p>Presença visual para o seu negócio.</p><a href=\"#contato\">Solicitar orçamento</a></article>"
     }
   ],
   "narrative": {
     "keyCharacteristics": [
-      "Logo cromada original e acentos da identidade do cliente.",
-      "Hero com luz diagonal e fotografia de projeto real.",
-      "CTAs amarelos com acabamento metálico e texto escuro.",
-      "Serviços assimétricos no desktop e em coluna no mobile.",
-      "Movimento decorativo com alternativa de movimento reduzido."
+      "Logo cromada original e paleta do cliente preservadas.",
+      "Hero centralizado sem foto, com fitas LED segmentadas.",
+      "Ações vazadas com preenchimento amarelo na interação.",
+      "Serviços assimétricos no desktop e em coluna até 700px.",
+      "Rolagem suave para roda, toque nativo e movimento reduzido."
     ],
     "donts": [
-      "Don't redesenhar a logo ou substituir a identidade por uma marca genérica.",
+      "Don't restaurar o showcase fotográfico ou brilho metálico antigo no hero.",
       "Don't inventar contatos, depoimentos, estatísticas, certificações ou projetos.",
       "Don't atribuir fotos a serviços que elas não demonstram.",
       "Don't espalhar neon indiscriminadamente ou fixar WebGL sobre o conteúdo.",
@@ -321,12 +233,12 @@
     "northStar": "Luz e material da própria marca",
     "rules": [],
     "dos": [
-      "Do preservar a logo original cromada e o trio azul, magenta e amarelo do cliente.",
-      "Do usar fotos reais fornecidas e respeitar os recortes específicos dos projetos.",
-      "Do reservar amarelo para ações, foco e detalhes de orientação.",
-      "Do manter serviços assimétricos no desktop e alinhados em coluna no mobile.",
-      "Do preservar foco visível, leitura estática e movimento reduzido."
+      "Do preservar logo cromada, conteúdo comercial e paleta do cliente.",
+      "Do manter o hero centralizado e sem foto, com LED decorativo ao fundo.",
+      "Do usar ações vazadas com preenchimento amarelo nos estados interativos.",
+      "Do respeitar toque nativo, foco visível e preferência de movimento reduzido.",
+      "Do usar somente projetos reais fornecidos e preservar seus recortes."
     ],
-    "overview": "O site apresenta o estúdio por meio de superfícies grafite, logo original cromada, luz diagonal e fotografias reais dos trabalhos fornecidos pelo cliente. A direção cinematográfica do hero dá presença ao material; a composição editorial assimétrica organiza serviços e evidências comerciais.\n\nOrbitron marca palavras de impacto, enquanto Montserrat sustenta títulos e leitura. O amarelo conduz ações, e azul e magenta aparecem como luz, faixas e detalhes da identidade. Conteúdo permanece legível sem animação."
+    "overview": "O site apresenta o estúdio com superfícies grafite, logo original cromada e luz diagonal azul, magenta e amarela. O hero é tipográfico e centralizado, sem fotografia, com fitas LED segmentadas ao fundo. Fotografias reais fornecidas pelo cliente sustentam serviços e portfólio.\n\nMontserrat organiza títulos e leitura; Orbitron marca o impacto. Ações vazadas revelam preenchimento amarelo na interação. A composição assimétrica de serviços permanece no desktop, com leitura em coluna nas telas menores. Conteúdo e navegação permanecem disponíveis com movimento reduzido."
   }
 }
