@@ -69,6 +69,12 @@ html { scroll-padding-top:100px }
 .service-card,.project,.value,.section-heading>*,.contact-copy,.quote-form { min-width:0 }
 .marquee-track { animation-duration:36s }
 .project-caption>span { line-height:1.7 }
+.service-3 .service-image img,.project-casa-royal-letras img { object-position:center 64% }
+@media(min-width:701px) {
+  .service-4 { grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr }
+  .service-4 .service-image { height:100%;min-height:340px }
+  .service-4 .service-info { align-self:center }
+}
 .service-info h3,.project-caption h3,.process-list h3,.value h3 { overflow-wrap:break-word }
 .menu-toggle { min-height:46px;min-width:46px;align-items:center;justify-content:center }
 .lightbox { overscroll-behavior:contain }
