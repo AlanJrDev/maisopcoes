@@ -5,6 +5,7 @@ import { Menu, X, MessageCircle, Plus, Check, Layers, Zap, Handshake, ChevronDow
 import { MetalButton } from './components/ui/metal-button'
 import { business, projects, services, whatsappUrl } from './data'
 import { useSmoothScroll } from './hooks/use-smooth-scroll'
+import { useScrollReveal } from './hooks/use-scroll-reveal'
 const Shader = lazy(() => import('./components/ui/web-gl-shader').then(m=>({default:m.WebGLShader})))
 
 function Brand({large=false}: {large?:boolean}) { return <a className={`brand ${large?'brand-large':''}`} href="#inicio" aria-label="Mais Opções — início"><img src="/images/logo.png" alt="Mais Opções" width="240" height="80"/>{large && <span>COMUNICAÇÃO VISUAL</span>}</a> }
@@ -21,17 +22,15 @@ export default function App() {
   const dialog = useRef<HTMLDialogElement>(null)
   const lastTrigger=useRef<HTMLElement|null>(null)
   const scrollTo = useSmoothScroll()
+  useScrollReveal(root)
   useEffect(() => {
     const scroll = () => setScrolled(window.scrollY>30)
     window.addEventListener('scroll',scroll,{passive:true});scroll()
     const media=gsap.matchMedia()
     media.add('(prefers-reduced-motion: no-preference)',()=>{
-      gsap.from('.hero-line',{y:24,opacity:0,duration:.8,stagger:.07,ease:'power3.out',clearProps:'all'})
+      gsap.from('.hero-line',{y:24,opacity:0,duration:.8,stagger:.07,ease:'power3.out',clearProps:'transform,opacity'})
     },root)
-    const sections=[...document.querySelectorAll('.section-heading, .service-info, .service-image, .project-img, .project-caption, .about-copy, .about-graphic, .value, .process-list li, .contact-copy, .quote-form')]
-    const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)gsap.fromTo(e.target,{y:26,opacity:0},{y:0,opacity:1,duration:.8,ease:'power3.out',clearProps:'transform,opacity'});io.unobserve(e.target)}}),{threshold:.15})
-    sections.forEach(s=>io.observe(s))
-    return()=>{window.removeEventListener('scroll',scroll);media.revert();io.disconnect()}
+    return()=>{window.removeEventListener('scroll',scroll);media.revert()}
   },[])
   useEffect(()=>{if(selected)dialog.current?.showModal();document.documentElement.classList.toggle('gallery-open',Boolean(selected));return()=>document.documentElement.classList.remove('gallery-open')},[selected])
   useEffect(()=>{if(!menu)return;const close=(e:KeyboardEvent)=>{if(e.key==='Escape')setMenu(false)};document.addEventListener('keydown',close);return()=>document.removeEventListener('keydown',close)},[menu])
