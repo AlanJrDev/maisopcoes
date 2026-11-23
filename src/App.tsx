@@ -7,7 +7,7 @@ import { business, projects, services, whatsappUrl } from './data'
 import { useSmoothScroll } from './hooks/use-smooth-scroll'
 const Shader = lazy(() => import('./components/ui/web-gl-shader').then(m=>({default:m.WebGLShader})))
 
-function Brand({large=false}: {large?:boolean}) { return <a className={`brand ${large?'brand-large':''}`} href="#inicio" aria-label="Mais Opções — início"><img src="/images/logo.png" alt="Mais Opções" width="240" height="80"/><span>COMUNICAÇÃO VISUAL</span></a> }
+function Brand({large=false}: {large?:boolean}) { return <a className={`brand ${large?'brand-large':''}`} href="#inicio" aria-label="Mais Opções — início"><img src="/images/logo.png" alt="Mais Opções" width="240" height="80"/>{large && <span>COMUNICAÇÃO VISUAL</span>}</a> }
 
 export default function App() {
   const [menu, setMenu] = useState(false)
@@ -28,8 +28,8 @@ export default function App() {
     media.add('(prefers-reduced-motion: no-preference)',()=>{
       gsap.from('.hero-line',{y:24,opacity:0,duration:.8,stagger:.07,ease:'power3.out',clearProps:'all'})
     },root)
-    const sections=[...document.querySelectorAll('.section-heading, .about-copy, .about-graphic, .value, .process-list li, .contact-copy, .quote-form')]
-    const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)gsap.fromTo(e.target,{y:20},{y:0,duration:.65,ease:'power3.out',clearProps:'transform'});io.unobserve(e.target)}}),{threshold:.15})
+    const sections=[...document.querySelectorAll('.section-heading, .service-info, .service-image, .project-img, .project-caption, .about-copy, .about-graphic, .value, .process-list li, .contact-copy, .quote-form')]
+    const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)gsap.fromTo(e.target,{y:26,opacity:0},{y:0,opacity:1,duration:.8,ease:'power3.out',clearProps:'transform,opacity'});io.unobserve(e.target)}}),{threshold:.15})
     sections.forEach(s=>io.observe(s))
     return()=>{window.removeEventListener('scroll',scroll);media.revert();io.disconnect()}
   },[])

@@ -36,7 +36,7 @@ html { scroll-padding-top:100px }
 }
 .outline-action::before, button.text-link::before, .send-whatsapp::before, .copy-message::before, .floating-whatsapp::before {
   content:'';position:absolute;inset:-1px;z-index:-1;background:var(--fill);transform:scaleY(0);transform-origin:bottom;
-  transition:transform var(--motion-ui) var(--ease-out);pointer-events:none;
+  transition:transform 380ms cubic-bezier(.22,.61,.36,1);pointer-events:none;
 }
 .metal-button { min-height:54px;padding:16px 24px;border-radius:5px;font-size:14px;font-weight:700;gap:11px }
 .outline-action:focus-visible, button.text-link:focus-visible, .send-whatsapp:focus-visible, .copy-message:focus-visible, .floating-whatsapp:focus-visible { color:#141108 }
@@ -45,6 +45,11 @@ html { scroll-padding-top:100px }
 .metal-button:active::before,.outline-action:active::before,button.text-link:active::before { transform:scaleY(1) }
 .hero-actions>.text-link { min-height:54px;padding:16px 22px;border-radius:5px;font-size:14px;font-weight:600;--outline:#d5deee65;--rest:#f5f5f5 }
 .nav-contact { --outline:#d5deee65;--rest:#f5f5f5 }
+.hero-actions>.text-link,.nav-contact,.copy-message { --fill:var(--blue) }
+.hero-actions>.text-link:focus-visible,.nav-contact:focus-visible,.copy-message:focus-visible,.hero-actions>.text-link:active,.nav-contact:active,.copy-message:active { color:#fff }
+@media(hover:hover) and (pointer:fine) {
+  .hero-actions>.text-link:hover,.nav-contact:hover,.copy-message:hover { color:#fff!important;border-color:var(--blue)!important }
+}
 .service-info button.text-link,.lightbox-content button.text-link { padding:12px 16px;border-radius:4px;min-height:46px;font-size:13px }
 .send-whatsapp { padding:12px 14px;border-radius:4px;min-height:44px }
 .copy-message { --outline:#ffffff60;--rest:#e5e7ee;padding:10px;min-height:44px }
@@ -212,8 +217,8 @@ html { scroll-padding-top:100px }
   html { scroll-behavior:auto!important }
   .outline-action::before,button.text-link::before,.send-whatsapp::before,.copy-message::before,.floating-whatsapp::before { transition:none;transform:none;opacity:0 }
   .outline-action:focus-visible::before,button.text-link:focus-visible::before,.send-whatsapp:focus-visible::before,.copy-message:focus-visible::before,.floating-whatsapp:focus-visible::before { opacity:1 }
-  .outline-action:focus-visible,button.text-link:focus-visible,.send-whatsapp:focus-visible,.copy-message:focus-visible,.floating-whatsapp:focus-visible { background:var(--yellow) }
+  .outline-action:focus-visible,button.text-link:focus-visible,.send-whatsapp:focus-visible,.copy-message:focus-visible,.floating-whatsapp:focus-visible { background:var(--fill) }
   @media(hover:hover) and (pointer:fine) {
-    .outline-action:hover,button.text-link:hover,.send-whatsapp:hover,.copy-message:hover,.floating-whatsapp:hover { background:var(--yellow) }
+    .outline-action:hover,button.text-link:hover,.send-whatsapp:hover,.copy-message:hover,.floating-whatsapp:hover { background:var(--fill) }
   }
 }
